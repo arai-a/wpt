@@ -344,6 +344,7 @@ function cloneObject(o) {
 function extendObject(dst, src) {
     Object.keys(src).forEach(function(key) {
         if (isSimpleObject(src[key])) {
+            dst[key] ||= {};
             extendObject (dst[key], src[key]);
         } else {
             dst[key] = src[key];
